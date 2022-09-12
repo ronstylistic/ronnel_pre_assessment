@@ -1,0 +1,4 @@
+<div class="crm-alert" *ngIf="message"
+     [ngClass]="{ 'alert': message, 'alert-success': message.code === 200, 'alert-danger': message.code !== 200 }">
+    {{message.txt}}
+</div>

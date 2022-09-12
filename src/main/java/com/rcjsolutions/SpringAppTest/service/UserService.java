@@ -1,6 +1,7 @@
 package com.rcjsolutions.SpringAppTest.service;
 
 import com.rcjsolutions.SpringAppTest.domain.User;
+import com.rcjsolutions.SpringAppTest.exception.ResourceNotFoundException;
 import com.rcjsolutions.SpringAppTest.model.UserData;
 import com.rcjsolutions.SpringAppTest.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -53,8 +54,12 @@ public class UserService {
     /*
      * This is method is used to get single User
      * */
-    public User getUserById(String userId) throws Exception {
-        return userRepository.findById(userId).orElseThrow(Exception::new);
+    public User getUserById(String userId) throws ResourceNotFoundException {
+        return userRepository.findById(userId).orElseThrow(ResourceNotFoundException::new);
+    }
+
+    public Optional<User> findUserByEmail(String email){
+        return userRepository.findByEmail(email);
     }
 
     public User populateUser(UserData userData){

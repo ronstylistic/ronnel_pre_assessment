@@ -1,0 +1,66 @@
+<section class="login">
+    <div class="container h-100">
+      <div class="row align-items-center h-75 justify-content-center">
+        <div class="card rounded-0 card-login border-0">
+          <div class="text-center mb-3">
+            <i class="fas fa-user-circle" style="font-size: 150px; color: #dfe3ee"></i>
+          </div>
+  
+          <div class="card-body">
+            <app-custom-alert #alert> </app-custom-alert>
+              <form [formGroup]="loginForm" name="form" class="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mt-3 form-group row">
+                  <label for="intputFirstname" class="col-sm-3 col-form-label">First Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" formControlName="FIRST_NAME" name="FIRST_NAME" id="intputFirstname"
+                      class="form-control rounded-0" placeholder="Fist Name" />
+                  </div>
+                </div>
+  
+                <div class="mt-3 form-group row">
+                  <label for="inputLastname" class="col-sm-3 col-form-label">Last Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" formControlName="LAST_NAME" name="LAST_NAME" id="inputLastname"
+                      class="form-control rounded-0" placeholder="Last Name" />
+                  </div>
+                </div>
+
+                <div class="mt-3 form-group row">
+                    <label for="inputMiddlename" class="col-sm-3 col-form-label">Middle Name</label>
+                    <div class="col-sm-8">
+                      <input type="text" formControlName="MIDDLE_NAME" name="MIDDLE_NAME" id="inputMiddlename"
+                        class="form-control rounded-0" placeholder="Middle Name" />
+                    </div>
+                  </div>
+  
+                <div class="mt-3 form-group row">
+                  <label for="inputUsername" class="col-sm-3 col-form-label">Email</label>
+                  <div class="col-sm-8">
+                    <input type="email" formControlName="EMAIL" name="EMAIL" id="inputUsername"
+                      class="form-control rounded-0" placeholder="Email" />
+                  </div>
+                </div>
+  
+                <div class="mt-3 form-group row">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+                  <div class="col-sm-8">
+                    <input type="password" formControlName="PASSWORD" id="inputPassword" name="PASSWORD"
+                      class="form-control rounded-0" placeholder="Password" />
+                  </div>
+                </div>
+  
+                <div class="mt-5 row">
+                  <div class="col-6 mx-auto">
+                    <button [disabled]="!loginForm.valid" type="submit"
+                      class="btn btn-primary btn-lg btn-block rounded-0">
+                      Register
+                    </button>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

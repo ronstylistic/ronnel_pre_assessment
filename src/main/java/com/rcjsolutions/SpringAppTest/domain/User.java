@@ -1,15 +1,15 @@
 package com.rcjsolutions.SpringAppTest.domain;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "USERS")
-@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
     @Id
@@ -21,6 +21,10 @@ public class User {
     @Column(name = "EMAIL", unique = true)
     private String email;
 
+    @JsonIgnore
+    @Column(name = "`PASSWORD`", length = 200)
+    private String password;
+
     @Column(name = "FIRST_NAME")
     private String firstName;
 
@@ -29,4 +33,12 @@ public class User {
 
     @Column(name = "LAST_NAME")
     private String lastName;
+
+    @JsonProperty("TFA")
+    @Column(name = "`TFA`", columnDefinition = "boolean default 'false'", nullable = false)
+    private boolean tfa;
+
+    @JsonIgnore
+    @Column(name = "`SECRET`", length = 64)
+    private String secret;
 }

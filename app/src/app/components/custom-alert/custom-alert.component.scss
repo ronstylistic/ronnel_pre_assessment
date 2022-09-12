@@ -1,0 +1,13 @@
+.crm-alert{
+    &.alert-success {
+        transition: all 200ms ease;
+        box-shadow: inset 0 0 0 1px #28a745;
+        border-radius: 0;
+    }
+
+    &.alert-danger {
+        box-shadow: inset 0 0 0 1px #ff3939;
+        border-radius: 0;
+        transition: all 200ms ease;
+    }
+}

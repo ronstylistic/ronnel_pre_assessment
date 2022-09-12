@@ -1,0 +1,50 @@
+<section class="login">
+    <div class="container h-100">
+      <div class="row align-items-center h-75 justify-content-center">
+        <div class="card rounded-0 card-login border-0">
+          <div class="text-center mb-3">
+            <i class="fas fa-user-circle" style="font-size: 150px; color: #dfe3ee"></i>
+          </div>
+  
+          <div class="card-body">
+            <app-custom-alert #alert></app-custom-alert>
+            <form [formGroup]="loginForm" name="form" class="loginForm" (ngSubmit)="onSubmit()">
+  
+              <div class="mt-2 form-group row">
+                <label for="inputEmail" class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-8">
+                  <input type="email" formControlName="USER_NAME" name="USER_NAME" id="inputEmail"
+                    class="form-control rounded-0" placeholder="Username" />
+                </div>
+              </div>
+  
+              <div class="mt-2 form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-8">
+                  <input type="password" formControlName="PASSWORD" id="inputPassword" name="PASSWORD"
+                    class="form-control rounded-0" placeholder="Password" required />
+                </div>
+              </div>
+
+              <div class="mt-2 form-group row">
+                <label for="inputOTP" class="col-sm-3 col-form-label">OTP</label>
+                <div class="col-sm-8">
+                  <input type="text" formControlName="OTP" id="inputOTP" name="OTP"
+                    class="form-control rounded-0" placeholder="OTP" />
+                </div>
+              </div>
+  
+              <div class="mt-5 row">
+                <div class="col-6 mx-auto">
+                  <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary btn-lg btn-block rounded-0">
+                    Login
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

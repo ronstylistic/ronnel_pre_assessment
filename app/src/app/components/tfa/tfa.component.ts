@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-tfa',
+  templateUrl: './tfa.component.html',
+  styleUrls: ['./tfa.component.scss']
+})
+export class TfaComponent implements OnInit {
+
+  image: string = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAADUUlEQVR4Xu2YW4rkMAxFBV5ALUlb95KyAINb5ypOuXoe9M/AEEU0aVs+ysdFD6ds/tyGfff8xR54twfe7YF3e+Dd/jF8WFhj4fGwV9ei20uewzk2LwPDtMMGnhl+DoMkkO16TxU4PUOiASRpPl5BeLynVYMPi8WQVhKqK9bCUxGePYBYx8KoMp7DOK8Gy5OYiySXBmsS7Hc1eGPYAAL+wx/H3/rzL8x94NM6uXQoc5COpMKdT6wGjHTkTHSV+KPlvnMpJDX5y8D8c/5CrgmcUY0OjEeSehU4C4fTUKzTZo+MJZ3QUK8qA5tUIqoh5FTadNP0GbzIN+nuDjOIKSKjmlI6u/KHintpBhWBNYDYScCG13GqyVwaloEdociizlGW0tlvcQ415Dqw0VrPRTBXy8WpNNMLi8CctjOEapJQrAcpZtl/ysCxiDYbLSV2SiQ+91RW14D+yLp7w4hjDB2caKhZrLKybLm1YE5RCQAv7kYH7muhN5WAfV3ScFJH+jVg6GeQIelUaEVgmkyGTKLCkJF0Sg0VWAVGNEzqAbPRJFKJpXkVOKom1kvAeDbJNem6eM6/IrB4OolaTVvXtqGuqyPjbWXglC5zyXSTZwFwSlcIFmYMYv5l15VcdpaYmnAVGF4pRP7Mwdxh6OjZpzwIWAQOxSSXqaZmkovhyd2eoCKwVpFIHBmjx8+yyiO++MrAIZe+9xtHHQ25ljiKqfeubQ34YMpo1pBR6i3CRE5d3j50vjfM5M3CIZBEUuaQVHRg8qoSTApp2+k2eT3L/GEN37b+fHNY1dRUWUOt5uKbPv0QcC+rm8M+dCeRgD1JQy6cHOlDrw48JRFRq/FmUpFF+j1ZRVcFRq7YqIhiHZkj6ZwoGm9aDTiF0oVkCEO0/ClAM8ikXh1YOXM2WNTD/BSNrb+bzO1hXT/IJZGsdT9RRnlGDsSsAaetxhtMxqqs8PMG1jVgZU5b7YX8OVBMo1mVpVwqA8diqsO4af42Xd4yHNEYSbMObKjkwrq2gUU4R9LtQ7oaMDmjsppsERMZ13VlFoNdU4bGO/Txi5IHUcuqwJM6cqKUP8ZHLmXFrT6z6N1ybw+zbyKHps+UYkSp8Q49q8A/tQfe7YF3e+DdHni3/wX+Al3tcqFuJhoHAAAAAElFTkSuQmCC'
+
+  ngOnInit(): void {
+  }
+
+}
