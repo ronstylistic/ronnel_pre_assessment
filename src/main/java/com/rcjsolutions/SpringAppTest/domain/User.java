@@ -3,14 +3,18 @@ package com.rcjsolutions.SpringAppTest.domain;
 import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.Collection;
 
 @Data
 @Entity
 @Table(name = "USERS")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(generator = "uuid2")
@@ -41,4 +45,34 @@ public class User {
     @JsonIgnore
     @Column(name = "`SECRET`", length = 64)
     private String secret;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
