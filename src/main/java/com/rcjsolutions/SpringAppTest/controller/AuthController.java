@@ -38,6 +38,9 @@ public class AuthController {
         user.setFirstName(userData.getFirstName());
         user.setMiddleName(userData.getMiddleName());
         user.setLastName(userData.getLastName());
+        user.setBirthday(user.getBirthday());
+        user.setAge(userData.getAge());
+        user.setPosition(userData.getPosition());
 
         return userService.save(user);
     }

@@ -2,6 +2,7 @@ package com.rcjsolutions.SpringAppTest.controller;
 
 import com.rcjsolutions.SpringAppTest.domain.User;
 import com.rcjsolutions.SpringAppTest.exception.EmailAlreadyExistException;
+import com.rcjsolutions.SpringAppTest.model.Filter;
 import com.rcjsolutions.SpringAppTest.model.UserData;
 import com.rcjsolutions.SpringAppTest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class UserController {
                 .firstName(request.getFirstName())
                 .middleName(request.getMiddleName())
                 .lastName(request.getLastName())
+                .age(request.getAge())
+                .birthday(request.getBirthday())
+                .position(request.getPosition())
                 .build();
 
         return userService.save(userService.populateUser(userData));
@@ -45,14 +49,34 @@ public class UserController {
         dbUser.setFirstName(request.getFirstName());
         dbUser.setMiddleName(request.getMiddleName());
         dbUser.setLastName(request.getLastName());
+        dbUser.setBirthday(request.getBirthday());
+        dbUser.setAge(request.getAge());
+        dbUser.setPosition(request.getPosition());
+
         User user = userService.save(dbUser);
 
         return userService.populateUserData(user);
     }
 
+    @GetMapping(value = "/list")
+    public List<UserData> getUserList(@RequestParam(value = "firstname", required = false) String firstname,
+                                   @RequestParam(value = "lastname", required = false) String lastname,
+                                   @RequestParam(value = "age", required = false) Integer age){
+
+        Filter filter = new Filter();
+        filter.setFirstName(firstname);
+        filter.setLastName(lastname);
+        filter.setAge(age);
+
+        List<User> users = userService.getUserSpecs(filter);
+        return userService.populateUserList(users);
+    }
+
     @GetMapping
-    public List<UserData> getUsers(){
-       List<User> users = userService.getUsers();
+    public List<UserData> getUsers(@RequestParam(value = "firstname", required = false) String firstname,
+                                   @RequestParam(value = "lastname", required = false) String lastname,
+                                   @RequestParam(value = "age", required = false) Integer age){
+       List<User> users = userService.getUsers(firstname, lastname, age);
        return userService.populateUserList(users);
     }
 

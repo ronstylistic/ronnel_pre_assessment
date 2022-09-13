@@ -1,9 +1,12 @@
 package com.rcjsolutions.SpringAppTest.domain;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -33,6 +36,17 @@ public class User {
 
     @Column(name = "LAST_NAME")
     private String lastName;
+
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(shape =  JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @Column(name = "BIRTHDAY", columnDefinition = "DATE")
+    private LocalDate birthday;
+
+    @Column(name = "AGE")
+    private Integer age;
+
+    @Column(name = "POSITION")
+    private String position;
 
     @JsonProperty("TFA")
     @Column(name = "`TFA`", columnDefinition = "boolean default 'false'", nullable = false)
